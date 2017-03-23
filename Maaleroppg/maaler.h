@@ -5,8 +5,8 @@
 // Klasser for håndtering av værdata.
 //
 #ifndef MAALER_DEFINERT
-  #define MAALER_DEFINERT
-  class Maaler {
+#define MAALER_DEFINERT
+class Maaler {
     public:
       void         settNr(
                      int nyttNr);              // Inn
@@ -25,7 +25,7 @@
     }; // Maaler
 
   //-----------------------------------------------------------------
-  class Barometer: public Maaler {
+class Barometer: public Maaler {
     public:
       void         settTrykk(double nyttTrykk);        // Inn, kPa
       double       finnTrykk() const;
@@ -36,15 +36,29 @@
     }; // Barometer
 
   //Oppgåve: Definer klassen Termometer med private data temperatur---------------------------------
-  class Termometer: public Maaler {
-  
-  };
+class Termometer: public Maaler {
+public:
+	void settTemperatur(double);
+	double finnTemperatur();
+	virtual void skrivData();
+
+private:
+	double temp;
+};
 
   //Oppgåve: Definer klassen Vindmaaler med private data retning og hastighet ------------------------------
-  class Vindmaaler: public Maaler {
-	 
-  
-  };
+class Vindmaaler: public Maaler {
+public:
+	void settVind(double);
+	void settRetning(double);
+	double finnVind();
+	double finnRetning();
+	virtual void skrivData();
+
+private:
+	double Hastighet;
+	double Retning;
+};
 
 #endif
 
